@@ -1,14 +1,18 @@
+const credentialNotice = "Promoción válida únicamente presentando credencial UAdeC vigente.";
+
 const benefits = [
   { unit:"sureste", unitLabel:"Unidad Sureste", title:"KFC", category:"Restaurante", image:"assets/beneficios/kfc.jpeg", text:"Beneficio para comunidad universitaria en restaurante participante.", search:"kfc comida restaurante pollo saltillo sureste" },
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Tacos", category:"Restaurante", image:"assets/beneficios/tacos.jpeg", text:"Convenio de alimentos para estudiantes, docentes y personal.", search:"tacos restaurante comida saltillo sureste" },
+  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Tacos", category:"Restaurante", image:"assets/beneficios/tacos.jpeg", text:"Beneficio de alimentos para estudiantes, docentes y personal.", search:"tacos restaurante comida saltillo sureste" },
   { unit:"sureste", unitLabel:"Unidad Sureste", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida sureste" },
+  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida laguna" },
+  { unit:"norte", unitLabel:"Unidad Norte", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida norte" },
   { unit:"sureste", unitLabel:"Unidad Sureste", title:"Boliche", category:"Entretenimiento", image:"assets/beneficios/boliche.jpeg", text:"Promoción en entretenimiento para comunidad UAdeC.", search:"boliche entretenimiento diversion sureste" },
   { unit:"sureste", unitLabel:"Unidad Sureste", title:"Padel", category:"Deporte", image:"assets/beneficios/padel.jpeg", text:"Beneficio deportivo para comunidad universitaria.", search:"padel deporte fitness sureste" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"City Express", category:"Hotel", image:"assets/beneficios/city-express.jpeg", text:"Convenio de hospedaje para comunidad universitaria.", search:"city express hotel hospedaje torreon laguna" },
+  { unit:"laguna", unitLabel:"Unidad Laguna", title:"City Express", category:"Hotel", image:"assets/beneficios/city-express.jpeg", text:"Beneficio de hospedaje para comunidad universitaria.", search:"city express hotel hospedaje torreon laguna" },
   { unit:"laguna", unitLabel:"Unidad Laguna", title:"Suites", category:"Hotel", image:"assets/beneficios/suites.jpeg", text:"Beneficio de hospedaje en establecimiento aliado.", search:"suites hotel hospedaje laguna" },
   { unit:"laguna", unitLabel:"Unidad Laguna", title:"Senda", category:"Transporte", image:"assets/beneficios/senda.jpeg", text:"Beneficio en transporte para la comunidad universitaria.", search:"senda transporte viajes laguna" },
-  { unit:"norte", unitLabel:"Unidad Norte", title:"KFC Nuevo León", category:"Restaurante", image:"assets/beneficios/kfc-nuevo-leon.jpeg", text:"Beneficio en restaurante participante de la Unidad Norte.", search:"kfc nuevo leon restaurante comida norte" },
-  { unit:"norte", unitLabel:"Unidad Norte", title:"Tim Hortons", category:"Cafetería", image:"assets/beneficios/tim-hortons.jpeg", text:"Beneficio en cafetería para comunidad universitaria.", search:"tim hortons cafe cafeteria restaurante norte" }
+  { unit:"laguna", unitLabel:"Unidad Laguna", title:"KFC Nuevo León", category:"Restaurante", image:"assets/beneficios/kfc-nuevo-leon.jpeg", text:"Beneficio en restaurante participante de la Unidad Laguna.", search:"kfc nuevo leon restaurante comida laguna" },
+  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Tim Hortons", category:"Cafetería", image:"assets/beneficios/tim-hortons.jpeg", text:"Beneficio en cafetería para comunidad universitaria.", search:"tim hortons cafe cafeteria restaurante laguna" }
 ];
 
 const perPage = 3;
@@ -31,6 +35,10 @@ const modalClose = document.querySelector(".modal-close");
 
 const normalizeText = (value) => value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 
+function escapeHtml(value){
+  return String(value).replace(/[&<>'"]/g, char => ({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));
+}
+
 function getFilteredBenefits(){
   const query = normalizeText(searchInput.value);
   return benefits.filter(item => {
@@ -51,17 +59,21 @@ function render(){
   currentUnitLabel.textContent = unitName;
   resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios encontrados · página ${currentPage} de ${totalPages}` : "No se encontraron beneficios con esa búsqueda.";
 
-  grid.innerHTML = pageItems.length ? pageItems.map(item => `
-    <article class="benefit-card">
-      <button type="button" class="zoom-trigger" data-image="${item.image}" data-title="${item.title}" data-caption="${item.unitLabel} · ${item.category} · ${item.text}">
-        <figure><img src="${item.image}" alt="Beneficio ${item.title} ${item.unitLabel}"></figure>
-        <div class="card-body">
-          <span class="badge">${item.unitLabel}</span>
-          <h3>${item.title}</h3>
-          <p>${item.text}</p>
-        </div>
-      </button>
-    </article>`).join("") : `<div class="empty-state"><strong>Sin resultados.</strong><br>Prueba con otra marca, giro o unidad.</div>`;
+  grid.innerHTML = pageItems.length ? pageItems.map(item => {
+    const caption = `${item.unitLabel} · ${item.category} · ${item.text} ${credentialNotice}`;
+    return `
+      <article class="benefit-card">
+        <button type="button" class="zoom-trigger" data-image="${escapeHtml(item.image)}" data-title="${escapeHtml(item.title)}" data-caption="${escapeHtml(caption)}">
+          <figure><img src="${escapeHtml(item.image)}" alt="Beneficio ${escapeHtml(item.title)} ${escapeHtml(item.unitLabel)}" loading="lazy"></figure>
+          <div class="card-body">
+            <span class="badge">${escapeHtml(item.unitLabel)}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
+            <p class="credential-warning">${credentialNotice}</p>
+          </div>
+        </button>
+      </article>`;
+  }).join("") : `<div class="empty-state"><strong>Sin resultados.</strong><br>Prueba con otra marca, giro o unidad.</div>`;
 
   renderPagination(totalPages);
 }

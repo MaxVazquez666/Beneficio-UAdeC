@@ -1,0 +1,61 @@
+INSTRUCCIONES PARA AGREGAR BENEFICIOS Y PUBLICAR EN DOMINIO UADEC
+
+1) Para agregar una imagen nueva
+- Guarda la imagen en esta carpeta:
+  assets/beneficios/
+- Usa nombres simples, sin acentos ni espacios. Ejemplo:
+  mi-empresa.jpeg
+  restaurante-x.png
+
+2) Para registrar un beneficio nuevo en la página
+- Abre el archivo script.js.
+- Al inicio verás una lista llamada benefits.
+- Copia un bloque como este y pégalo dentro de la lista:
+
+  {
+    unit:"sureste",
+    unitLabel:"Unidad Sureste",
+    title:"Nombre de la empresa",
+    category:"Restaurante",
+    image:"assets/beneficios/mi-empresa.jpeg",
+    text:"Beneficio para comunidad universitaria.",
+    search:"nombre empresa restaurante sureste descuento beneficio"
+  },
+
+3) Unidades disponibles
+- Para Unidad Sureste usa:
+  unit:"sureste", unitLabel:"Unidad Sureste"
+- Para Unidad Laguna usa:
+  unit:"laguna", unitLabel:"Unidad Laguna"
+- Para Unidad Norte usa:
+  unit:"norte", unitLabel:"Unidad Norte"
+- Si un beneficio aplica en las 3 unidades, debes repetir el bloque 3 veces, cambiando unit y unitLabel.
+
+4) Cambiar o actualizar una imagen existente
+- Reemplaza la imagen en assets/beneficios/ con el mismo nombre exacto.
+- Ejemplo: si el código dice assets/beneficios/pampas.jpeg, la imagen debe llamarse exactamente pampas.jpeg.
+
+5) Publicar con GitHub Pages
+- Sube index.html, styles.css, script.js, registro.html y las carpetas assets/ y assets/beneficios/.
+- No subas el ZIP comprimido.
+- En GitHub Pages selecciona la rama principal/main y carpeta /(root).
+
+6) Si UAdeC te da dominio y FTPS
+- Pide estos datos al área de TI:
+  Servidor FTPS/SFTP
+  Puerto
+  Usuario
+  Contraseña
+  Carpeta de publicación, por ejemplo public_html o www
+  Dominio o subdominio, por ejemplo beneficios.uadec.mx
+- En FileZilla sube el contenido de la carpeta, no el ZIP.
+- Deben quedar en la carpeta pública:
+  index.html
+  styles.css
+  script.js
+  registro.html
+  assets/
+
+7) Formulario de empresas
+- La página registro.html usa mailto a angelamolinaarriaga@uadec.edu.mx.
+- Al enviar, se abre la aplicación de correo del usuario. Para guardar registros automáticamente en una base de datos se necesita un servidor o un formulario externo.
