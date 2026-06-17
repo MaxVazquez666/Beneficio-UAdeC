@@ -1346,3 +1346,191 @@ html, body{
     padding:9px 13px;
   }
 }
+
+
+/* ===== ACCESO LIMPIO UADEC ===== */
+.login-page{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(241,211,110,.28), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(255,255,255,.14), transparent 28%),
+    linear-gradient(135deg,#021436 0%,#061f49 45%,#214fa4 100%);
+  display:grid;
+  place-items:center;
+  padding:24px;
+  overflow-x:hidden;
+}
+
+.login-page::before{
+  content:"";
+  position:fixed;
+  inset:auto -80px -160px auto;
+  width:min(560px,80vw);
+  aspect-ratio:1;
+  background:url("assets/logo-redondo-blanco.png") center/contain no-repeat;
+  opacity:.08;
+  pointer-events:none;
+}
+
+.login-page::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(90deg,rgba(2,20,54,.28),rgba(255,255,255,0));
+  pointer-events:none;
+}
+
+.login-shell{
+  position:relative;
+  z-index:1;
+  width:min(540px,100%);
+}
+
+.login-card{
+  width:100%;
+  padding:34px;
+  border:1px solid rgba(255,255,255,.30);
+  border-radius:30px;
+  background:
+    linear-gradient(145deg,rgba(241,211,110,.97),rgba(213,169,47,.96));
+  box-shadow:0 30px 90px rgba(0,0,0,.34);
+  backdrop-filter:blur(12px);
+  position:relative;
+  overflow:hidden;
+}
+
+.login-card::before{
+  content:"";
+  position:absolute;
+  inset:-80px -100px auto auto;
+  width:260px;
+  height:260px;
+  background:rgba(255,255,255,.18);
+  border-radius:50%;
+  pointer-events:none;
+}
+
+.login-logos{
+  display:grid;
+  gap:18px;
+  justify-items:center;
+  margin-bottom:26px;
+  position:relative;
+  z-index:1;
+}
+
+.login-logos img:first-child{
+  width:min(375px,100%);
+  height:auto;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));
+}
+
+.login-logos img:last-child{
+  width:min(385px,100%);
+  height:auto;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.26));
+}
+
+.login-logos span{
+  width:92px;
+  height:4px;
+  border-radius:999px;
+  background:rgba(6,31,73,.75);
+}
+
+.login-card h1{
+  margin:0 0 24px;
+  color:var(--blue-dark);
+  text-align:center;
+  font-size:clamp(30px,5vw,42px);
+  line-height:1.05;
+  letter-spacing:-.035em;
+  position:relative;
+  z-index:1;
+}
+
+.login-form{
+  display:grid;
+  gap:12px;
+  position:relative;
+  z-index:1;
+}
+
+.login-form label{
+  color:var(--blue-dark);
+  font-weight:900;
+}
+
+.login-form input{
+  width:100%;
+  min-height:54px;
+  border:1px solid rgba(6,31,73,.16);
+  border-radius:18px;
+  padding:0 16px;
+  font:inherit;
+  outline:none;
+  background:#fff;
+  color:var(--blue-dark);
+}
+
+.login-form input:focus{
+  border-color:var(--blue-dark);
+  box-shadow:0 0 0 4px rgba(6,31,73,.14);
+}
+
+.login-form button,
+.nav-logout{
+  border:0;
+  cursor:pointer;
+  font:inherit;
+  font-weight:900;
+}
+
+.login-form button{
+  min-height:54px;
+  margin-top:8px;
+  border-radius:999px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--blue-dark),var(--blue));
+  box-shadow:0 16px 34px rgba(6,31,73,.24);
+}
+
+.login-form button:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.04);
+}
+
+.login-error{
+  margin:8px 0 0;
+  color:#8a1f11;
+  font-weight:900;
+  text-align:center;
+}
+
+.nav-logout{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:0 16px;
+  border-radius:999px;
+  color:#fff;
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.32);
+  transition:.2s ease;
+}
+
+.nav-logout:hover{
+  background:var(--gold);
+  color:var(--blue-dark);
+  transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+  .login-page{padding:16px;align-items:center}
+  .login-card{padding:26px 20px;border-radius:24px}
+  .login-logos img:first-child{width:min(310px,100%)}
+  .login-logos img:last-child{width:min(315px,100%)}
+  .main-nav{gap:10px;justify-content:center}
+  .nav-logout{min-height:40px;padding:0 14px}
+}
