@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registro de Empresas | Beneficios UAdeC</title>
+    <meta name="description" content="Formulario de registro para empresas interesadas en afiliar beneficios para la comunidad universitaria UAdeC.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="register-page">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <a class="logo logo-uadec logo-uadec-wide" href="portal.html" aria-label="Volver al inicio">
+            <img src="assets/uadec-horizontal-oficial.png" alt="Universidad Autónoma de Coahuila">
+          </a>
+          <span class="divider" aria-hidden="true"></span>
+          <a class="logo logo-vinculacion" href="portal.html" aria-label="Coordinación General de Vinculación e Innovación Productiva">
+            <img src="assets/vinculacion-oficial.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
+          </a>
+        </div>
+        <nav class="main-nav" aria-label="Navegación principal"><a href="portal.html" class="back-portal">Volver al portal principal</a><a href="portal.html#beneficios">Beneficios</a><a href="registro.html">Afiliación empresa</a><a href="admin.html">Agregar beneficio</a><button class="nav-logout" type="button" data-logout>Cerrar sesión</button></nav>
+      </div>
+    </header>
+
+    <main class="register-main">
+      <section class="register-hero">
+        <div class="register-copy">
+          <span class="eyebrow">Empresas aliadas UAdeC</span>
+          <h1>Registro de beneficio empresarial</h1>
+          <p>Completa tus datos para que la Coordinación General de Vinculación e Innovación Productiva pueda revisar tu propuesta de beneficio para la comunidad universitaria.</p>
+        </div>
+
+        <form class="register-card" id="affiliate-form">
+          <h2>Datos de contacto</h2>
+
+          <label>
+            Nombre del contacto
+            <input id="affiliate-contact" name="Nombre del contacto" type="text" placeholder="Ej. Juan Pérez" required>
+          </label>
+
+          <label>
+            Correo
+            <input id="affiliate-email" name="Correo" type="email" placeholder="correo@empresa.com" required>
+          </label>
+
+          <label>
+            Teléfono
+            <input id="affiliate-phone" name="Telefono" type="tel" placeholder="Ej. 844 000 0000" required>
+          </label>
+
+          <label>
+            Nombre de la empresa
+            <input id="affiliate-company" name="Nombre de la empresa" type="text" placeholder="Ej. Empresa aliada" required>
+          </label>
+
+          <button type="submit">Registrar empresa</button>
+          <p class="form-note">Al registrar la empresa, la información quedará disponible para revisión y seguimiento por parte de Vinculación.</p>
+          <div class="success-message" id="affiliate-success" hidden>
+            <strong>¡Registro exitoso!</strong><br>
+            Gracias por registrar tu empresa. La Coordinación de Vinculación revisará la información.
+          </div>
+        </form>
+      </section>
+
+      <section class="contact-card">
+        <h2>Contacto institucional</h2>
+        <p><strong>Angela Gabriela Molina Arriaga</strong><br>Subcoordinadora General de Vinculación</p>
+        <a href="mailto:angelamolinaarriaga@uadec.edu.mx">angelamolinaarriaga@uadec.edu.mx</a>
+      </section>
+    </main>
+    <script src="auth.js"></script>
+    <script src="affiliate-register.js"></script>
+  </body>
+</html>

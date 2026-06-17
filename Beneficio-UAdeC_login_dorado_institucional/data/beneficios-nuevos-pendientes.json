@@ -1,0 +1,178 @@
+[
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Bolerama Laguna",
+    "category": "Entretenimiento",
+    "image": "assets/beneficios/pendientes/laguna/bolerama-laguna.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Bolerama Laguna Unidad Laguna pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "KFC Laguna",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/laguna/kfc-laguna.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "KFC Laguna Unidad Laguna pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Pampas",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/laguna/pampas.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Pampas Unidad Laguna pendiente beneficio",
+    "status": "duplicado_posible",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Senda",
+    "category": "Transporte",
+    "image": "assets/beneficios/pendientes/laguna/senda.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Senda Unidad Laguna pendiente beneficio",
+    "status": "duplicado_posible",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Sucursales",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/laguna/sucursales.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Sucursales Unidad Laguna pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Tim Horton´s Laguna",
+    "category": "Cafetería",
+    "image": "assets/beneficios/pendientes/laguna/tim-horton-s-laguna.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Tim Horton´s Laguna Unidad Laguna pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Laguna.zip"
+  },
+  {
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Garden Padel Norte",
+    "category": "Deporte",
+    "image": "assets/beneficios/pendientes/norte/garden-padel-norte.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Garden Padel Norte Unidad Norte pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Norte.zip"
+  },
+  {
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Pampas",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/norte/pampas.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Pampas Unidad Norte pendiente beneficio",
+    "status": "duplicado_posible",
+    "source": "Norte.zip"
+  },
+  {
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Senda",
+    "category": "Transporte",
+    "image": "assets/beneficios/pendientes/norte/senda.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Senda Unidad Norte pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Norte.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "City Express",
+    "category": "Hotel",
+    "image": "assets/beneficios/pendientes/sureste/city-express.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "City Express Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Muguerza",
+    "category": "Salud",
+    "image": "assets/beneficios/pendientes/sureste/muguerza.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Muguerza Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Pampas",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/sureste/pampas.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Pampas Unidad Sureste pendiente beneficio",
+    "status": "duplicado_posible",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Senda",
+    "category": "Transporte",
+    "image": "assets/beneficios/pendientes/sureste/senda.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Senda Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Staybridge",
+    "category": "Hotel",
+    "image": "assets/beneficios/pendientes/sureste/staybridge.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Staybridge Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Taquería Musa",
+    "category": "Restaurante",
+    "image": "assets/beneficios/pendientes/sureste/taqueria-musa.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Taquería Musa Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  },
+  {
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Wyndham Garden Saltillo",
+    "category": "Hotel",
+    "image": "assets/beneficios/pendientes/sureste/wyndham-garden-saltillo.jpeg",
+    "text": "Beneficio pendiente de revisar y aprobar por Vinculación.",
+    "search": "Wyndham Garden Saltillo Unidad Sureste pendiente beneficio",
+    "status": "nuevo_por_revisar",
+    "source": "Sureste.zip"
+  }
+]
