@@ -1,110 +1,232 @@
 [
   {
+    "id": "base-0",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
-    "title": "KFC",
+    "title": "KFC Sureste",
     "category": "Restaurante",
     "image": "assets/beneficios/kfc.jpeg",
-    "text": "Beneficio para comunidad universitaria en restaurante participante.",
-    "search": "kfc comida restaurante pollo saltillo sureste"
+    "text": "Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento.",
+    "search": "KFC Sureste Restaurante Unidad Sureste Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento."
   },
   {
+    "id": "base-1",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
-    "title": "Tacos",
+    "title": "Taquería Musa",
     "category": "Restaurante",
     "image": "assets/beneficios/tacos.jpeg",
-    "text": "Beneficio de alimentos para estudiantes, docentes y personal.",
-    "search": "tacos restaurante comida saltillo sureste"
+    "text": "Beneficio gastronómico para la comunidad UAdeC, con promociones preferenciales en alimentos seleccionados del establecimiento.",
+    "search": "Taquería Musa Restaurante Unidad Sureste Beneficio gastronómico para la comunidad UAdeC, con promociones preferenciales en alimentos seleccionados del establecimiento."
   },
   {
+    "id": "base-2",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
-    "title": "Pampas",
+    "title": "Pampas Sureste",
     "category": "Restaurante",
     "image": "assets/beneficios/pampas.jpeg",
-    "text": "Beneficio en restaurante participante.",
-    "search": "pampas buffet restaurante comida sureste"
+    "text": "Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante.",
+    "search": "Pampas Sureste Restaurante Unidad Sureste Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante."
   },
   {
+    "id": "base-3",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
-    "title": "Pampas",
+    "title": "Pampas Laguna",
     "category": "Restaurante",
     "image": "assets/beneficios/pampas.jpeg",
-    "text": "Beneficio en restaurante participante.",
-    "search": "pampas buffet restaurante comida laguna"
+    "text": "Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante.",
+    "search": "Pampas Laguna Restaurante Unidad Laguna Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante."
   },
   {
+    "id": "base-4",
     "unit": "norte",
     "unitLabel": "Unidad Norte",
-    "title": "Pampas",
+    "title": "Pampas Norte",
     "category": "Restaurante",
     "image": "assets/beneficios/pampas.jpeg",
-    "text": "Beneficio en restaurante participante.",
-    "search": "pampas buffet restaurante comida norte"
+    "text": "Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante.",
+    "search": "Pampas Norte Restaurante Unidad Norte Beneficio gastronómico para estudiantes, docentes y personal administrativo UAdeC, con descuento preferencial en consumo dentro del restaurante."
   },
   {
+    "id": "base-5",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
-    "title": "Boliche",
+    "title": "Bolerama Sureste",
     "category": "Entretenimiento",
     "image": "assets/beneficios/boliche.jpeg",
-    "text": "Promoción en entretenimiento para comunidad UAdeC.",
-    "search": "boliche entretenimiento diversion sureste"
+    "text": "Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes.",
+    "search": "Bolerama Sureste Entretenimiento Unidad Sureste Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes."
   },
   {
+    "id": "base-6",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
-    "title": "Padel",
+    "title": "Garden Pádel Sureste",
     "category": "Deporte",
     "image": "assets/beneficios/padel.jpeg",
-    "text": "Beneficio deportivo para comunidad universitaria.",
-    "search": "padel deporte fitness sureste"
+    "text": "Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes.",
+    "search": "Garden Pádel Sureste Deporte Unidad Sureste Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes."
   },
   {
+    "id": "base-7",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
     "title": "City Express",
     "category": "Hotel",
     "image": "assets/beneficios/city-express.jpeg",
-    "text": "Beneficio de hospedaje para comunidad universitaria.",
-    "search": "city express hotel hospedaje torreon laguna"
+    "text": "Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel.",
+    "search": "City Express Hotel Unidad Laguna Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel."
   },
   {
+    "id": "base-8",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
-    "title": "Suites",
+    "title": "Staybridge Suites",
     "category": "Hotel",
     "image": "assets/beneficios/suites.jpeg",
-    "text": "Beneficio de hospedaje en establecimiento aliado.",
-    "search": "suites hotel hospedaje laguna"
+    "text": "Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel.",
+    "search": "Staybridge Suites Hotel Unidad Laguna Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel."
   },
   {
+    "id": "base-9",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
-    "title": "Senda",
+    "title": "Senda Laguna",
     "category": "Transporte",
     "image": "assets/beneficios/senda.jpeg",
-    "text": "Beneficio en transporte para la comunidad universitaria.",
-    "search": "senda transporte viajes laguna"
+    "text": "Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes.",
+    "search": "Senda Laguna Transporte Unidad Laguna Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes."
   },
   {
+    "id": "base-10",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
-    "title": "KFC Nuevo León",
+    "title": "KFC Laguna",
     "category": "Restaurante",
-    "image": "assets/beneficios/kfc-nuevo-leon.jpeg",
-    "text": "Beneficio en restaurante participante de la Unidad Laguna.",
-    "search": "kfc nuevo leon restaurante comida laguna"
+    "image": "assets/beneficios/publicados/kfc-laguna-1782869114376-10.jpg",
+    "text": "Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento.",
+    "search": "KFC Laguna Restaurante Unidad Laguna Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento."
   },
   {
+    "id": "base-11",
     "unit": "laguna",
     "unitLabel": "Unidad Laguna",
-    "title": "Tim Hortons",
+    "title": "Tim Hortons Laguna",
     "category": "Cafetería",
     "image": "assets/beneficios/tim-hortons.jpeg",
-    "text": "Beneficio en cafetería para comunidad universitaria.",
-    "search": "tim hortons cafe cafeteria restaurante laguna"
+    "text": "Beneficio en alimentos y bebidas para la comunidad UAdeC, con descuento preferencial en productos participantes de Tim Hortons.",
+    "search": "Tim Hortons Laguna Cafetería Unidad Laguna Beneficio en alimentos y bebidas para la comunidad UAdeC, con descuento preferencial en productos participantes de Tim Hortons."
+  },
+  {
+    "id": "local-1781134294969",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Muguerza",
+    "category": "Salud",
+    "image": "assets/beneficios/publicados/muguerza-1782869114376-12.jpg",
+    "text": "Beneficio en servicios de salud para la comunidad UAdeC, con atención médica, consultas y servicios hospitalarios sujetos a las condiciones vigentes del convenio.",
+    "search": "Muguerza Salud Unidad Sureste Beneficio en servicios de salud para la comunidad UAdeC, con atención médica, consultas y servicios hospitalarios sujetos a las condiciones vigentes del convenio."
+  },
+  {
+    "id": "local-1781134682755",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "City Express",
+    "category": "Hotel",
+    "image": "assets/beneficios/publicados/city-express-1782869114376-13.jpg",
+    "text": "Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel.",
+    "search": "City Express Hotel Unidad Sureste Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel."
+  },
+  {
+    "id": "local-1781134831276",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Senda Sureste",
+    "category": "Transporte",
+    "image": "assets/beneficios/publicados/senda-sureste-1782869114376-14.jpg",
+    "text": "Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes.",
+    "search": "Senda Sureste Transporte Unidad Sureste Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes."
+  },
+  {
+    "id": "local-1781134999112",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Staybridge Suites Saltillo",
+    "category": "Hotel",
+    "image": "assets/beneficios/publicados/staybridge-suites-saltillo-1782869114376-15.jpg",
+    "text": "Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel.",
+    "search": "Staybridge Suites Saltillo Hotel Unidad Sureste Beneficio en hospedaje para la comunidad UAdeC, con tarifas preferenciales en habitaciones y servicios participantes del hotel."
+  },
+  {
+    "id": "local-1781135397837",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "Wyndham Garden Saltillo",
+    "category": "Hotel",
+    "image": "assets/beneficios/publicados/wyndham-garden-saltillo-1782869114376-16.jpg",
+    "text": "Beneficio en hospedaje para la comunidad UAdeC, con tarifa preferencial en habitaciones participantes, sujeto a disponibilidad y condiciones del hotel.",
+    "search": "Wyndham Garden Saltillo Hotel Unidad Sureste Beneficio en hospedaje para la comunidad UAdeC, con tarifa preferencial en habitaciones participantes, sujeto a disponibilidad y condiciones del hotel."
+  },
+  {
+    "id": "local-1781135919743",
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Garden Padel Norte",
+    "category": "Deporte",
+    "image": "assets/beneficios/publicados/garden-padel-norte-1782869114376-17.jpg",
+    "text": "Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes.",
+    "search": "Garden Padel Norte Deporte Unidad Norte Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes."
+  },
+  {
+    "id": "local-1781136129305",
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Senda Norte",
+    "category": "Transporte",
+    "image": "assets/beneficios/publicados/senda-norte-1782869114376-18.jpg",
+    "text": "Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes.",
+    "search": "Senda Norte Transporte Unidad Norte Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes."
+  },
+  {
+    "id": "local-1781136626974",
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Bolerama Laguna",
+    "category": "Entretenimiento",
+    "image": "assets/beneficios/publicados/bolerama-laguna-1782869114376-19.jpg",
+    "text": "Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes.",
+    "search": "Bolerama Laguna Entretenimiento Unidad Laguna Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes."
+  },
+  {
+    "id": "local-1781137026634",
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "KFC Sucursales",
+    "category": "Restaurante",
+    "image": "assets/beneficios/publicados/kfc-sucursales-1782869114376-20.jpg",
+    "text": "Beneficio en alimentos para la comunidad UAdeC, aplicable en sucursales participantes de KFC dentro de las regiones señaladas en la promoción.",
+    "search": "KFC Sucursales Restaurante Unidad Laguna Beneficio en alimentos para la comunidad UAdeC, aplicable en sucursales participantes de KFC dentro de las regiones señaladas en la promoción."
+  },
+  {
+    "id": "local-1782860098889",
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "Battery Master Laguna",
+    "category": "Beneficio",
+    "image": "assets/beneficios/publicados/battery-master-laguna-1782869114376-21.jpg",
+    "text": "Beneficio en productos de energía para la comunidad UAdeC, con 10% de descuento en pilas de uso general y pilas selladas participantes. Aplica en pago de contado y sujeto a restricciones del establecimiento.",
+    "search": "Battery Master Laguna Beneficio Unidad Laguna Beneficio en productos de energía para la comunidad UAdeC, con 10% de descuento en pilas de uso general y pilas selladas participantes. Aplica en pago de contado y sujeto a restricciones del establecimiento."
+  },
+  {
+    "id": "local-1782860156716",
+    "unit": "norte",
+    "unitLabel": "Unidad Norte",
+    "title": "Battery Master Monclova",
+    "category": "Beneficio",
+    "image": "assets/beneficios/publicados/battery-master-monclova-1782869114376-22.jpg",
+    "text": "Beneficio automotriz para la comunidad UAdeC, con 18% de descuento en acumuladores LTH participantes y servicio a domicilio sin costo en la compra del acumulador. Aplica en pago de contado y sujeto a restricciones.",
+    "search": "Battery Master Monclova Beneficio Unidad Norte Beneficio automotriz para la comunidad UAdeC, con 18% de descuento en acumuladores LTH participantes y servicio a domicilio sin costo en la compra del acumulador. Aplica en pago de contado y sujeto a restricciones."
   }
 ]
