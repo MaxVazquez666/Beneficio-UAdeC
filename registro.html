@@ -12,14 +12,16 @@
       <div class="header-inner">
         <div class="brand-lockup">
           <a class="logo logo-uadec logo-uadec-wide" href="portal.html" aria-label="Volver al inicio">
-            <img src="assets/uadec-horizontal-oficial.png" alt="Universidad Autónoma de Coahuila">
+            <img src="assets/uadec-header.png" alt="Universidad Autónoma de Coahuila">
           </a>
           <span class="divider" aria-hidden="true"></span>
           <a class="logo logo-vinculacion" href="portal.html" aria-label="Coordinación General de Vinculación e Innovación Productiva">
-            <img src="assets/vinculacion-oficial.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
+            <img src="assets/vinculacion-header.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
           </a>
         </div>
-        <nav class="main-nav" aria-label="Navegación principal"><a href="portal.html" class="back-portal">Volver al portal principal</a><a href="portal.html#beneficios">Beneficios</a><a href="registro.html">Afiliación empresa</a><a href="admin.html">Agregar beneficio</a><button class="nav-logout" type="button" data-logout>Cerrar sesión</button></nav>
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="index.html" class="back-portal">Volver al inicio</a>
+        </nav>
       </div>
     </header>
 
@@ -54,8 +56,14 @@
             <input id="affiliate-company" name="Nombre de la empresa" type="text" placeholder="Ej. Empresa aliada" required>
           </label>
 
-          <button type="submit">Registrar empresa</button>
-          <p class="form-note">Al registrar la empresa, la información quedará disponible para revisión y seguimiento por parte de Vinculación.</p>
+          <label class="company-honeypot" aria-hidden="true">
+            Sitio web
+            <input id="affiliate-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+
+          <button type="submit" id="affiliate-submit">Registrar empresa</button>
+          <p class="form-note">Al registrar la empresa, la información será enviada para revisión y seguimiento por parte de Vinculación.</p>
+          <div class="status-message error" id="affiliate-error" hidden></div>
           <div class="success-message" id="affiliate-success" hidden>
             <strong>¡Registro exitoso!</strong><br>
             Gracias por registrar tu empresa. La Coordinación de Vinculación revisará la información.
@@ -70,6 +78,7 @@
       </section>
     </main>
     <script src="auth.js"></script>
+    <script src="publish-config.js"></script>
     <script src="affiliate-register.js"></script>
   </body>
 </html>

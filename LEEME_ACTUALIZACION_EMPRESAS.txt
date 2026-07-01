@@ -1,0 +1,35 @@
+ACTUALIZACIÓN UAdeC: LOGO Y REGISTRO PÚBLICO DE EMPRESAS
+
+Incluye:
+- Logo UAdeC más grande y equilibrado en el acceso.
+- Apartado “¿Eres una empresa y deseas afiliarte?” en el acceso y portal.
+- Registro de empresa accesible sin correo UAdeC.
+- Envío automático del registro a data/afiliaciones.json mediante Vercel/GitHub.
+- Panel de Ángela únicamente para administrar beneficios.
+- Eliminación visual del apartado de afiliaciones y del botón de Excel.
+
+IMPORTANTE:
+Este ZIP contiene solamente los archivos que cambian. No contiene data/beneficios.json ni publish-config.js, para no reemplazar tus beneficios ni la dirección de Vercel.
+
+PASOS:
+1. En CMD:
+   cd /d C:\Users\saidv\Documents\Beneficio-UAdeC
+   git pull --rebase origin main
+
+2. Copia todo lo que está dentro de la carpeta Beneficio-UAdeC-main de este ZIP y pégalo en:
+   C:\Users\saidv\Documents\Beneficio-UAdeC
+   Acepta reemplazar archivos.
+
+3. En CMD:
+   git status
+   git add index.html portal.html admin.html registro.html auth.js affiliate-register.js styles.css api/register-company.js assets/uadec-header.png assets/vinculacion-header.png
+   git commit -m "Mejorar acceso y habilitar registro público de empresas"
+   git push origin main
+
+4. Espera a que GitHub Pages y Vercel terminen de desplegar.
+5. Abre la página y presiona Ctrl + F5.
+
+Los registros de empresas se guardarán en:
+   data/afiliaciones.json
+
+No necesitas crear una variable nueva en Vercel; utiliza las variables que ya configuraste para la publicación de beneficios.

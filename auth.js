@@ -62,12 +62,16 @@
 
     const role = getRole();
 
+    if(currentPage === "registro.html"){
+      return;
+    }
+
     if(!role){
       goToLogin();
       return;
     }
 
-    if((currentPage === "admin.html" || currentPage === "registro.html") && role !== "admin"){
+    if(currentPage === "admin.html" && role !== "admin"){
       goToPortal();
       return;
     }

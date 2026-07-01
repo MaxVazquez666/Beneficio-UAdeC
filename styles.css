@@ -1597,3 +1597,90 @@ html, body{
     text-align:center;
   }
 }
+
+
+/* ===== AJUSTES: LOGOS DE ACCESO Y AFILIACIÓN PÚBLICA ===== */
+.login-logos .login-logo-uadec{
+  width:min(405px,100%) !important;
+  max-height:126px;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.28));
+}
+
+.login-logos .login-logo-vinculacion{
+  width:min(420px,100%) !important;
+  max-height:122px;
+  object-fit:contain;
+  filter:drop-shadow(0 12px 18px rgba(0,0,0,.26));
+}
+
+.company-login-cta{
+  position:relative;
+  z-index:1;
+  margin-top:24px;
+  padding:18px;
+  border:1px solid rgba(6,31,73,.16);
+  border-radius:20px;
+  background:rgba(255,255,255,.24);
+  text-align:center;
+}
+
+.company-login-cta p{
+  margin:0 0 12px;
+  color:var(--blue-dark);
+  font-weight:900;
+  line-height:1.35;
+}
+
+.company-login-cta a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  padding:0 24px;
+  border-radius:999px;
+  background:var(--blue-dark);
+  color:#fff;
+  font-weight:900;
+  box-shadow:0 12px 24px rgba(6,31,73,.18);
+  transition:.2s ease;
+}
+
+.company-login-cta a:hover{
+  transform:translateY(-2px);
+  background:var(--blue);
+}
+
+.company-honeypot{
+  position:absolute !important;
+  left:-10000px !important;
+  width:1px !important;
+  height:1px !important;
+  overflow:hidden !important;
+}
+
+.register-card button:disabled{
+  opacity:.7;
+  cursor:wait;
+  transform:none;
+}
+
+#affiliate-error{
+  margin-top:16px;
+}
+
+@media(max-width:540px){
+  .login-logos .login-logo-uadec{
+    width:min(340px,100%) !important;
+    max-height:110px;
+  }
+
+  .login-logos .login-logo-vinculacion{
+    width:min(350px,100%) !important;
+    max-height:108px;
+  }
+
+  .company-login-cta{
+    padding:16px 14px;
+  }
+}

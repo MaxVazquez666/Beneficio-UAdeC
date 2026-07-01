@@ -12,18 +12,17 @@
       <div class="header-inner">
         <div class="brand-lockup">
           <a class="logo logo-uadec" href="portal.html" aria-label="Universidad Autónoma de Coahuila">
-            <img src="assets/uadec-horizontal-oficial.png" alt="Universidad Autónoma de Coahuila">
+            <img src="assets/uadec-header.png" alt="Universidad Autónoma de Coahuila">
           </a>
           <span class="divider" aria-hidden="true"></span>
           <a class="logo logo-vinculacion" href="portal.html" aria-label="Coordinación General de Vinculación e Innovación Productiva">
-            <img src="assets/vinculacion-oficial.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
+            <img src="assets/vinculacion-header.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
           </a>
         </div>
 
         <nav class="main-nav" aria-label="Navegación principal">
           <a href="portal.html" class="back-portal">Volver al portal principal</a>
           <a href="portal.html#beneficios">Beneficios</a>
-          <a href="registro.html">Afiliación empresa</a>
           <a href="admin.html">Agregar beneficio</a>
         <button class="nav-logout" type="button" data-logout>Cerrar sesión</button></nav>
       </div>
@@ -109,34 +108,6 @@
           <p class="form-note">Publica en GitHub todos los beneficios visibles en este panel, incluyendo los agregados y editados.</p>
           <button class="admin-button secondary full-button" type="button" id="clear-list">Borrar beneficios agregados desde este panel</button>
 
-          <hr class="admin-divider">
-
-          <h2>Afiliaciones de empresas</h2>
-          <p>Las empresas registradas aparecerán aquí para exportarlas a Excel.</p>
-          <div class="admin-list" id="affiliate-list"></div>
-          <form class="affiliate-edit-form" id="affiliate-edit-form" hidden>
-            <h3>Editar empresa registrada</h3>
-            <input type="hidden" id="edit-affiliate-index">
-            <label>Nombre de la empresa<input id="edit-affiliate-company" type="text" required></label>
-            <label>Nombre del contacto<input id="edit-affiliate-contact" type="text" required></label>
-            <label>Correo<input id="edit-affiliate-email" type="email" required></label>
-            <label>Teléfono<input id="edit-affiliate-phone" type="tel" required></label>
-            <label>Estatus
-              <select id="edit-affiliate-status">
-                <option value="Pendiente">Pendiente</option>
-                <option value="Contactada">Contactada</option>
-                <option value="Aprobada">Aprobada</option>
-                <option value="No procede">No procede</option>
-              </select>
-            </label>
-            <div class="admin-actions compact-actions">
-              <button class="admin-button" type="submit">Guardar cambios</button>
-              <button class="admin-button secondary" type="button" id="cancel-affiliate-edit">Cancelar</button>
-            </div>
-          </form>
-          <button class="admin-button full-button" type="button" id="export-affiliates">Descargar Excel</button>
-          <button class="admin-button secondary full-button" type="button" id="clear-affiliates">Borrar registros</button>
-          <p class="form-note">El archivo se descarga con estatus “Pendiente”. Después puedes abrirlo en Excel y marcar manualmente en verde las empresas ya contactadas o aprobadas.</p>
         </aside>
       </section>
     </main>
