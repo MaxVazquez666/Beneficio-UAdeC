@@ -2,6 +2,7 @@
   const ADMIN_EMAIL = "angelamolinaarriaga@uadec.edu.mx";
   const INSTITUTIONAL_DOMAIN = "@uadec.edu.mx";
   const ROLE_KEY = "uadec-session-role";
+  const PUBLISH_KEY = "uadec-publish-key";
   const currentPage = (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   function normalizeEmail(value){
@@ -18,6 +19,7 @@
 
   function clearSession(){
     sessionStorage.removeItem(ROLE_KEY);
+    sessionStorage.removeItem(PUBLISH_KEY);
   }
 
   function goToLogin(){

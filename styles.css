@@ -1534,3 +1534,14 @@ html, body{
   .main-nav{gap:10px;justify-content:center}
   .nav-logout{min-height:40px;padding:0 14px}
 }
+
+
+/* Publicación de beneficios */
+.publish-button{
+  background:linear-gradient(135deg,#f1d36e,#d5a92f);
+  color:#061f49;
+  box-shadow:0 12px 28px rgba(213,169,47,.25);
+}
+.publish-button:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.publish-button:disabled{opacity:.65;cursor:wait;transform:none}
+.status-message.error{background:#fff0f0;color:#9b1c1c;border:1px solid #efb2b2}

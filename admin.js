@@ -9,9 +9,11 @@ const saveBenefitButton = document.querySelector('#save-benefit-button');
 const fileInput = document.querySelector('#image-file');
 const previewCard = document.querySelector('#preview-card');
 const previewImage = document.querySelector('#image-preview');
+const publishButton = document.querySelector('#publish-benefits');
 
 const STORAGE_KEY = 'uadec-beneficios-locales';
 const BASE_EDITS_KEY = 'uadec-beneficios-editados';
+const PUBLISH_KEY_SESSION = 'uadec-publish-key';
 let baseBenefits = [];
 let savedBenefits = readJson(STORAGE_KEY, []);
 let baseEdits = readJson(BASE_EDITS_KEY, {});
@@ -77,6 +79,90 @@ function getAllBenefits(){
     ...getBaseBenefitsWithEdits(),
     ...savedBenefits.map(item => ({...item, source:'local'}))
   ];
+}
+
+
+function getPublishEndpoint(){
+  return String(window.UADEC_PUBLISH_CONFIG?.endpoint || '').trim();
+}
+
+function getPublishKey(){
+  let key = sessionStorage.getItem(PUBLISH_KEY_SESSION) || '';
+  if(!key){
+    key = prompt('Escribe la clave de publicación configurada para Vinculación:') || '';
+    key = key.trim();
+    if(key) sessionStorage.setItem(PUBLISH_KEY_SESSION, key);
+  }
+  return key;
+}
+
+function cleanBenefitForPublish(item){
+  const result = {
+    id: item.id,
+    unit: item.unit,
+    unitLabel: item.unitLabel,
+    title: item.title,
+    category: item.category,
+    image: item.image,
+    text: item.text,
+    search: item.search || `${item.title} ${item.category} ${item.unitLabel} ${item.text}`
+  };
+  if(item.validUntil) result.validUntil = item.validUntil;
+  return result;
+}
+
+async function publishAllBenefits(){
+  const endpoint = getPublishEndpoint();
+  if(!endpoint || endpoint.includes('TU-PROYECTO')){
+    showStatus('Configura primero la URL de Vercel en publish-config.js.', 'error');
+    return false;
+  }
+  const key = getPublishKey();
+  if(!key){
+    showStatus('Publicación cancelada: falta la clave.', 'error');
+    return false;
+  }
+
+  const originalText = publishButton?.textContent;
+  if(publishButton){
+    publishButton.disabled = true;
+    publishButton.textContent = 'Publicando…';
+  }
+  showStatus('Publicando beneficios en GitHub…');
+
+  try{
+    const response = await fetch(endpoint, {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'X-Publish-Key':key
+      },
+      body:JSON.stringify({benefits:getAllBenefits().map(cleanBenefitForPublish)})
+    });
+    const data = await response.json().catch(() => ({}));
+    if(!response.ok || !data.ok){
+      if(response.status === 401) sessionStorage.removeItem(PUBLISH_KEY_SESSION);
+      throw new Error(data.error || 'No se pudieron publicar los beneficios.');
+    }
+
+    baseBenefits = Array.isArray(data.benefits) ? data.benefits : getAllBenefits().map(cleanBenefitForPublish);
+    savedBenefits = [];
+    baseEdits = {};
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(BASE_EDITS_KEY);
+    renderList();
+    showStatus('Beneficios publicados correctamente. GitHub Pages puede tardar unos minutos en reflejarlos.');
+    return true;
+  }catch(error){
+    console.error(error);
+    showStatus(error.message || 'No se pudieron publicar los beneficios.', 'error');
+    return false;
+  }finally{
+    if(publishButton){
+      publishButton.disabled = false;
+      publishButton.textContent = originalText || 'Publicar cambios para todos';
+    }
+  }
 }
 
 async function loadBaseBenefits(){
@@ -465,6 +551,10 @@ if(cancelAffiliateEditButton){
   cancelAffiliateEditButton.addEventListener('click', () => {
     affiliateEditForm.hidden = true;
   });
+}
+
+if(publishButton){
+  publishButton.addEventListener('click', publishAllBenefits);
 }
 
 loadBaseBenefits();
