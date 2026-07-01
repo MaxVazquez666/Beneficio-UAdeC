@@ -1545,3 +1545,55 @@ html, body{
 .publish-button:hover{filter:brightness(1.04);transform:translateY(-1px)}
 .publish-button:disabled{opacity:.65;cursor:wait;transform:none}
 .status-message.error{background:#fff0f0;color:#9b1c1c;border:1px solid #efb2b2}
+
+
+/* ===== AJUSTES SOLICITADOS EN JUNTA ===== */
+/* Los dos logotipos usan archivos recortados y la misma altura visual. */
+.site-header .brand-lockup .logo-uadec img,
+.site-header .brand-lockup .logo-vinculacion img{
+  height:78px !important;
+  width:auto !important;
+  max-width:360px !important;
+  object-fit:contain !important;
+}
+
+.social-label{
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  white-space:nowrap;
+  letter-spacing:.01em;
+}
+
+.site-header .social-links{
+  gap:12px !important;
+}
+
+@media (max-width:1200px){
+  .site-header .brand-lockup .logo-uadec img,
+  .site-header .brand-lockup .logo-vinculacion img{
+    height:72px !important;
+    max-width:min(360px,44vw) !important;
+  }
+}
+
+@media (max-width:768px){
+  .site-header .brand-lockup .logo-uadec img,
+  .site-header .brand-lockup .logo-vinculacion img{
+    height:auto !important;
+    width:min(330px,90vw) !important;
+    max-height:82px !important;
+    max-width:min(330px,90vw) !important;
+  }
+
+  .site-header .social-links{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    gap:12px !important;
+  }
+
+  .social-label{
+    width:100%;
+    text-align:center;
+  }
+}

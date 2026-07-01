@@ -51,8 +51,6 @@ const fallbackBenefits = [
   { unit:"laguna", unitLabel:"Unidad Laguna", title:"Tim Hortons", category:"Cafetería", image:"assets/beneficios/tim-hortons.jpeg", text:"Beneficio en cafetería para comunidad universitaria.", search:"tim hortons cafe cafeteria restaurante laguna" }
 ];
 
-const searchForm = document.querySelector(".search-box");
-const searchInput = document.querySelector("#site-search");
 const unitButtons = document.querySelectorAll(".unit-card");
 const grid = document.querySelector("#benefit-grid");
 const resultsMessage = document.querySelector("#results-message");
@@ -86,12 +84,7 @@ async function loadBenefits(){
 }
 
 function getFilteredBenefits(){
-  const query = normalizeText(searchInput.value);
-  return benefits.filter(item => {
-    const inUnit = item.unit === selectedUnit;
-    const haystack = normalizeText(`${item.title} ${item.unitLabel} ${item.category} ${item.text} ${item.search}`);
-    return inUnit && (!query || haystack.includes(query));
-  });
+  return benefits.filter(item => item.unit === selectedUnit);
 }
 
 function render(){
@@ -104,7 +97,7 @@ function render(){
   const unitName = benefits.find(item => item.unit === selectedUnit)?.unitLabel || "Unidad";
 
   currentUnitLabel.textContent = unitName;
-  resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios encontrados · página ${currentPage} de ${totalPages}` : "No se encontraron beneficios con esa búsqueda.";
+  resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios disponibles · página ${currentPage} de ${totalPages}` : "No hay beneficios disponibles en esta unidad.";
 
   grid.innerHTML = pageItems.length ? pageItems.map(item => {
     const caption = `${item.unitLabel} · ${item.category} · ${item.text} ${credentialNotice}`;
@@ -120,7 +113,7 @@ function render(){
           </div>
         </button>
       </article>`;
-  }).join("") : `<div class="empty-state"><strong>Sin resultados.</strong><br>Intenta con otra marca, giro o unidad.</div>`;
+  }).join("") : `<div class="empty-state"><strong>Sin beneficios disponibles.</strong><br>Selecciona otra unidad regional.</div>`;
 
   renderPagination(totalPages);
 }
@@ -144,12 +137,6 @@ unitButtons.forEach(button => {
   });
 });
 
-if(searchInput){
-  searchInput.addEventListener("input", () => { currentPage = 1; render(); });
-}
-if(searchForm){
-  searchForm.addEventListener("submit", event => { event.preventDefault(); currentPage = 1; render(); });
-}
 if(prevPage){
   prevPage.addEventListener("click", () => { if(currentPage > 1){ currentPage--; render(); } });
 }
