@@ -1,0 +1,23 @@
+ACTUALIZACIÓN - PORTAL SIN AFILIACIÓN Y NUEVO FONDO
+
+Archivos incluidos:
+- index.html
+- portal.html
+- registro.html
+- styles.css
+- assets/uadec-fondo.jpg
+
+Cambios:
+1. Se quitó del portal la sección "¿Eres una empresa y deseas afiliarte?".
+2. Se quitó del menú del portal el botón "Afiliación empresa".
+3. El botón "Cerrar sesión" ahora aparece en rojo.
+4. Se agregó el fondo institucional tipo campus en portal, inicio de sesión y registro.
+5. Se agregó el correo institucional vinculacion@uadec.edu.mx en el inicio de sesión.
+
+Cómo aplicarlo en tu carpeta Git:
+1. Copia estos archivos dentro de tu carpeta del proyecto.
+2. Luego en la terminal usa:
+   git status
+   git add .
+   git commit -m "Actualizar portal y fondo institucional"
+   git push origin main
