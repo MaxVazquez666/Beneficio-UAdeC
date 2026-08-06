@@ -1,13 +1,13 @@
 [
   {
     "id": "base-0",
-    "unit": "sureste",
-    "unitLabel": "Unidad Sureste",
-    "title": "KFC Sureste",
+    "unit": "laguna",
+    "unitLabel": "Unidad Laguna",
+    "title": "KFC Laguna",
     "category": "Restaurante",
     "image": "assets/beneficios/kfc.jpeg",
     "text": "Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento.",
-    "search": "KFC Sureste Restaurante Unidad Sureste Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento."
+    "search": "KFC Laguna Restaurante Unidad Laguna Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento."
   },
   {
     "id": "base-1",
