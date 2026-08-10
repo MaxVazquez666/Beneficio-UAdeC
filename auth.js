@@ -7,7 +7,9 @@
   const INSTITUTIONAL_DOMAIN = "@uadec.edu.mx";
   const ROLE_KEY = "uadec-session-role";
   const PUBLISH_KEY = "uadec-publish-key";
-  const currentPage = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+
+  const currentPage =
+    (location.pathname.split("/").pop() || "index.html").toLowerCase();
 
   function normalizeEmail(value) {
     return String(value || "").trim().toLowerCase();
@@ -45,7 +47,10 @@
 
       if (loginEmail) {
         loginEmail.value = "";
-        setTimeout(() => (loginEmail.value = ""), 150);
+
+        setTimeout(() => {
+          loginEmail.value = "";
+        }, 150);
       }
 
       loginForm.addEventListener("submit", (event) => {
@@ -53,23 +58,34 @@
 
         const email = normalizeEmail(loginEmail?.value);
 
+        const isAdmin = ADMIN_EMAILS.includes(email);
+        const isInstitutional = email.endsWith(INSTITUTIONAL_DOMAIN);
+
         if (
           !email ||
           !email.includes("@") ||
-          !(ADMIN_EMAILS.includes(email) || email.endsWith(INSTITUTIONAL_DOMAIN))
+          (!isAdmin && !isInstitutional)
         ) {
-          if (loginError) loginError.hidden = false;
-          if (loginEmail) loginEmail.value = "";
+          if (loginError) {
+            loginError.hidden = false;
+          }
+
+          if (loginEmail) {
+            loginEmail.value = "";
+          }
+
           return;
         }
 
-        if (loginError) loginError.hidden = true;
+        if (loginError) {
+          loginError.hidden = true;
+        }
 
-        setRole(
-          ADMIN_EMAILS.includes(email) ? "admin" : "consulta"
-        );
+        setRole(isAdmin ? "admin" : "consulta");
 
-        if (loginEmail) loginEmail.value = "";
+        if (loginEmail) {
+          loginEmail.value = "";
+        }
 
         goToPortal();
       });
@@ -88,20 +104,30 @@
       return;
     }
 
-    if (currentPage === "admin.html" && role !== "admin") {
+    if (
+      (currentPage === "admin.html" ||
+        currentPage === "registro.html") &&
+      role !== "admin"
+    ) {
       goToPortal();
       return;
     }
 
-    document.querySelectorAll("[data-admin-only]").forEach((element) => {
-      if (role !== "admin") element.remove();
-    });
-
-    document.querySelectorAll("[data-logout]").forEach((button) => {
-      button.addEventListener("click", () => {
-        clearSession();
-        goToLogin();
+    document
+      .querySelectorAll("[data-admin-only]")
+      .forEach((element) => {
+        if (role !== "admin") {
+          element.remove();
+        }
       });
-    });
+
+    document
+      .querySelectorAll("[data-logout]")
+      .forEach((button) => {
+        button.addEventListener("click", () => {
+          clearSession();
+          goToLogin();
+        });
+      });
   });
 })();
