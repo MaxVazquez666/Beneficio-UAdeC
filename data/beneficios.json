@@ -1,15 +1,5 @@
 [
   {
-    "id": "base-0",
-    "unit": "laguna",
-    "unitLabel": "Unidad Laguna",
-    "title": "KFC Laguna",
-    "category": "Restaurante",
-    "image": "assets/beneficios/kfc.jpeg",
-    "text": "Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento.",
-    "search": "KFC Laguna Restaurante Unidad Laguna Beneficio en alimentos para la comunidad UAdeC, con descuento preferencial en productos participantes de KFC, sujeto a disponibilidad y condiciones del establecimiento."
-  },
-  {
     "id": "base-1",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
@@ -170,16 +160,6 @@
     "search": "Wyndham Garden Saltillo Hotel Unidad Sureste Beneficio en hospedaje para la comunidad UAdeC, con tarifa preferencial en habitaciones participantes, sujeto a disponibilidad y condiciones del hotel."
   },
   {
-    "id": "local-1781135919743",
-    "unit": "norte",
-    "unitLabel": "Unidad Norte",
-    "title": "Garden Padel Norte",
-    "category": "Deporte",
-    "image": "assets/beneficios/publicados/garden-padel-norte-1782869114376-17.jpg",
-    "text": "Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes.",
-    "search": "Garden Padel Norte Deporte Unidad Norte Beneficio deportivo para la comunidad UAdeC, con tarifas preferenciales en renta de canchas de pádel y servicios participantes."
-  },
-  {
     "id": "local-1781136129305",
     "unit": "norte",
     "unitLabel": "Unidad Norte",
@@ -188,16 +168,6 @@
     "image": "assets/beneficios/publicados/senda-norte-1782869114376-18.jpg",
     "text": "Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes.",
     "search": "Senda Norte Transporte Unidad Norte Beneficio en transporte para la comunidad UAdeC, con descuento preferencial en compra de boletos de autobús en rutas participantes."
-  },
-  {
-    "id": "local-1781136626974",
-    "unit": "laguna",
-    "unitLabel": "Unidad Laguna",
-    "title": "Bolerama Laguna",
-    "category": "Entretenimiento",
-    "image": "assets/beneficios/publicados/bolerama-laguna-1782869114376-19.jpg",
-    "text": "Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes.",
-    "search": "Bolerama Laguna Entretenimiento Unidad Laguna Beneficio en entretenimiento y convivencia para la comunidad UAdeC, con descuentos preferenciales en líneas de boliche, renta de zapatos y consumo de alimentos participantes."
   },
   {
     "id": "local-1781137026634",
