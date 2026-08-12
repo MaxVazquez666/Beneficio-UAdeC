@@ -1,0 +1,58 @@
+PUBLICACIÓN AUTOMÁTICA DE BENEFICIOS (GITHUB + VERCEL)
+
+Esta versión conserva GitHub Pages como portal público, pero usa una función privada de Vercel para actualizar data/beneficios.json y subir imágenes al repositorio.
+
+1. SUBE ESTA VERSIÓN A TU REPOSITORIO
+   Usa la carpeta clonada con Git:
+   C:\Users\saidv\Documents\Beneficio-UAdeC
+
+   Copia estos archivos nuevos o modificados y ejecuta:
+   git add .
+   git commit -m "Agregar publicación automática de beneficios"
+   git push origin main
+
+2. CREA UN TOKEN DE GITHUB
+   En GitHub: Settings > Developer settings > Personal access tokens > Fine-grained tokens.
+   Limítalo únicamente al repositorio Beneficio-UAdeC.
+   Permiso necesario: Contents = Read and write.
+   Guarda el token; no lo pegues en el código ni en GitHub.
+
+3. CREA UN PROYECTO EN VERCEL
+   Importa el repositorio MaxVazquez666/Beneficio-UAdeC.
+   En Settings > Environment Variables agrega:
+
+   GITHUB_TOKEN       = token creado en GitHub
+   GITHUB_OWNER       = MaxVazquez666
+   GITHUB_REPO        = Beneficio-UAdeC
+   GITHUB_BRANCH      = main
+   ADMIN_PUBLISH_KEY  = una clave privada elegida por ustedes
+   ALLOWED_ORIGIN     = https://maxvazquez666.github.io
+
+   Después realiza Deploy.
+
+4. COPIA LA URL DE VERCEL
+   Ejemplo: https://beneficio-uadec-api.vercel.app
+
+   Abre publish-config.js y cambia:
+   https://TU-PROYECTO.vercel.app/api/publish-benefits
+
+   por:
+   https://beneficio-uadec-api.vercel.app/api/publish-benefits
+
+   Guarda, haz commit y push.
+
+5. MIGRAR LOS BENEFICIOS QUE YA TIENES EN TU NAVEGADOR
+   Entra desde el MISMO navegador donde aparecen tus beneficios.
+   Inicia sesión como administradora.
+   Abre Agregar beneficio.
+   Presiona "Publicar cambios para todos".
+   Escribe ADMIN_PUBLISH_KEY cuando se solicite.
+
+   El sistema publica todos los beneficios visibles, incluidas ediciones e imágenes.
+   Después GitHub Pages puede tardar de uno a varios minutos en actualizarse.
+
+IMPORTANTE
+- La clave de publicación se guarda únicamente en sessionStorage y se borra al cerrar sesión.
+- El correo no se guarda.
+- El token de GitHub queda únicamente en Vercel, no en el navegador.
+- Si cambias de dominio, actualiza ALLOWED_ORIGIN en Vercel.

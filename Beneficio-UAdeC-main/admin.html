@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agregar beneficio | UAdeC Vinculación</title>
+    <meta name="description" content="Panel para agregar beneficios al portal UAdeC Vinculación.">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header" id="inicio">
+      <div class="header-inner">
+        <div class="brand-lockup">
+          <a class="logo logo-uadec" href="portal.html" aria-label="Universidad Autónoma de Coahuila">
+            <img src="assets/uadec-header.png" alt="Universidad Autónoma de Coahuila">
+          </a>
+          <span class="divider" aria-hidden="true"></span>
+          <a class="logo logo-vinculacion" href="portal.html" aria-label="Coordinación General de Vinculación e Innovación Productiva">
+            <img src="assets/vinculacion-header.png" alt="Coordinación General de Vinculación e Innovación Productiva UAdeC">
+          </a>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegación principal">
+          <a href="portal.html" class="back-portal">Volver al portal principal</a>
+          <a href="portal.html#beneficios">Beneficios</a>
+          <a href="admin.html">Agregar beneficio</a>
+        <button class="nav-logout" type="button" data-logout>Cerrar sesión</button></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="admin-hero">
+        <div class="admin-hero-content">
+          <p class="eyebrow">Panel administrativo</p>
+          <h1>Agregar beneficio</h1>
+          <p>Captura un beneficio, sube su imagen y al aceptar aparecerá en la sección de beneficios.</p>
+        </div>
+      </section>
+
+      <section class="admin-shell simple-admin-shell">
+        <div class="admin-card">
+          <h2 id="benefit-form-title">Nuevo beneficio</h2>
+          <div class="status-message" id="admin-status" hidden></div>
+          <form class="admin-form" id="benefit-form">
+            <div class="form-grid">
+              <label>
+                Nombre del beneficio
+                <input id="title" required placeholder="">
+              </label>
+
+              <label>
+                Giro o categoría
+                <select id="category" required>
+                  <option value="">Selecciona una categoría</option>
+                  <option value="Restaurante">Restaurante</option>
+                  <option value="Hotel">Hotel</option>
+                  <option value="Transporte">Transporte</option>
+                  <option value="Salud">Salud</option>
+                  <option value="Deporte">Deporte</option>
+                  <option value="Entretenimiento">Entretenimiento</option>
+                  <option value="Cafetería">Cafetería</option>
+                  <option value="Beneficio">Otro beneficio</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Unidad regional
+              <select id="unit" required>
+                <option value="">Selecciona una unidad</option>
+                <option value="sureste" data-label="Unidad Sureste">Unidad Sureste</option>
+                <option value="laguna" data-label="Unidad Laguna">Unidad Laguna</option>
+                <option value="norte" data-label="Unidad Norte">Unidad Norte</option>
+              </select>
+            </label>
+
+            <label>
+              Descripción del beneficio
+              <textarea id="text" required placeholder="Describe brevemente el beneficio que ofrece la empresa."></textarea>
+            </label>
+
+            <label>
+              Imagen del beneficio
+              <input id="image-file" type="file" accept="image/*">
+            </label>
+
+            <div class="image-preview-card" id="preview-card" hidden>
+              <span>Vista previa</span>
+              <img id="image-preview" src="" alt="Vista previa del beneficio">
+            </div>
+
+            <p class="credential-warning admin-warning">Promoción válida únicamente presentando credencial UAdeC vigente.</p>
+
+            <div class="admin-actions">
+              <button class="admin-button" type="submit" id="save-benefit-button">Aceptar y agregar beneficio</button>
+              <button class="admin-button secondary" type="button" id="cancel-edit-button" hidden>Cancelar edición</button>
+              <button class="admin-button secondary" type="button" id="cancel-button">Cancelar</button>
+              <a class="admin-button secondary as-link" href="portal.html#beneficios">Ver beneficios</a>
+            </div>
+          </form>
+        </div>
+
+        <aside class="admin-side-card admin-preview">
+          <h2>Beneficios publicados</h2>
+          <p>Desde aquí puedes editar o eliminar beneficios de uno en uno, o revisar los agregados desde este panel.</p>
+          <div class="admin-list" id="generated-list"></div>
+          <button class="admin-button full-button publish-button" type="button" id="publish-benefits">Publicar cambios para todos</button>
+          <p class="form-note">Publica en GitHub todos los beneficios visibles en este panel, incluyendo los agregados, editados y eliminados.</p>
+          <button class="admin-button secondary full-button" type="button" id="clear-list">Borrar beneficios agregados desde este panel</button>
+          <p class="form-note">También puedes eliminar cada beneficio individualmente con el botón <strong>Eliminar</strong> que aparece junto a cada registro.</p>
+
+        </aside>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Coordinación General de Vinculación e Innovación Productiva · Universidad Autónoma de Coahuila</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="publish-config.js"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>

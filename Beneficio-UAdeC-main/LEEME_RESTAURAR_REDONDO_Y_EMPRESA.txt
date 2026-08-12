@@ -1,0 +1,22 @@
+ACTUALIZACIÓN - RESTAURAR MARCA REDONDA Y REGISTRO DE EMPRESA
+
+Cambios incluidos:
+1. Se restauró la marca de agua redonda institucional en el portal.
+2. Se restauró la marca de agua redonda institucional en el inicio de sesión.
+3. Volvió el apartado "¿Eres una empresa y deseas afiliarte?".
+4. El botón "Registrar empresa" dirige a registro.html.
+5. Se mantiene debajo el correo vinculacion@uadec.edu.mx.
+6. Se conserva el fondo del campus y el botón rojo de cerrar sesión.
+
+Archivos principales modificados:
+- index.html
+- styles.css
+- assets/logo-redondo-blanco.png
+
+Comandos recomendados:
+  cd /d C:\Users\saidv\Documents\Beneficio-UAdeC
+  git pull --rebase origin main
+  git status
+  git add index.html styles.css assets\logo-redondo-blanco.png
+  git commit -m "Restaurar marca redonda y registro de empresa"
+  git push origin main

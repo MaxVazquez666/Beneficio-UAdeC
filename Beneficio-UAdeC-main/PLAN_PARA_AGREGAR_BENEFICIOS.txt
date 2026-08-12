@@ -1,0 +1,51 @@
+PLAN RECOMENDADO PARA AGREGAR BENEFICIOS
+
+SITUACIÓN ACTUAL
+El portal está publicado en GitHub Pages, por lo tanto es un sitio estático. Esto significa:
+- Sí puede mostrar beneficios, imágenes, búsqueda y formularios visuales.
+- No puede guardar beneficios nuevos directamente desde la página sin una base de datos o servicio externo.
+
+OPCIÓN 1: Mantenerlo en GitHub Pages por ahora
+Se agregó una página admin.html llamada "Agregar beneficio".
+Esta página NO guarda en el servidor, pero ayuda a Vinculación a capturar un beneficio y generar el bloque JSON.
+
+Flujo:
+1. Vinculación entra a admin.html.
+2. Captura nombre, categoría, unidades, descripción e imagen.
+3. La página genera el JSON.
+4. Se copia ese JSON y se pega en data/beneficios.json.
+5. Se sube la imagen a assets/beneficios/.
+6. Se hace commit en GitHub.
+
+Ventaja: no requiere pagar ni configurar base de datos.
+Desventaja: alguien debe subir el cambio a GitHub.
+
+OPCIÓN 2: Google Forms + Google Sheets
+Empresas llenan un formulario de afiliación.
+Vinculación llena un formulario interno para beneficios.
+La página puede leer una hoja publicada como CSV/JSON.
+
+Ventaja: muy fácil para personal administrativo.
+Desventaja: el manejo de imágenes puede requerir links de Drive o carga manual.
+
+OPCIÓN 3: Firebase (recomendada para sistema real)
+- Firebase Auth para acceso solo con correos autorizados.
+- Firestore para guardar beneficios.
+- Firebase Storage para imágenes.
+- GitHub Pages puede seguir hospedando la página.
+
+Ventaja: panel real, usuarios, imágenes y actualización automática.
+Desventaja: requiere configuración inicial.
+
+ESTRUCTURA NUEVA DE ESTE ZIP
+- index.html = portal público.
+- registro.html = afiliación de empresas.
+- admin.html = generador estático de beneficios.
+- data/beneficios.json = beneficios publicados actualmente.
+- data/beneficios-nuevos-pendientes.json = beneficios recibidos en Laguna.zip, Norte.zip y Sureste.zip, separados para revisar.
+- assets/beneficios/ = imágenes oficiales/publicadas.
+- assets/beneficios/pendientes/ = imágenes recibidas separadas por unidad.
+
+IMPORTANTE
+Para ver data/beneficios.json en Visual Studio Code, usa la extensión Live Server.
+Si abres index.html con doble clic, algunos navegadores bloquean la carga de JSON local.
