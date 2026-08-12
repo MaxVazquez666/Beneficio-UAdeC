@@ -13,10 +13,12 @@ const publishButton = document.querySelector('#publish-benefits');
 
 const STORAGE_KEY = 'uadec-beneficios-locales';
 const BASE_EDITS_KEY = 'uadec-beneficios-editados';
+const BASE_DELETED_KEY = 'uadec-beneficios-eliminados';
 const PUBLISH_KEY_SESSION = 'uadec-publish-key';
 let baseBenefits = [];
 let savedBenefits = readJson(STORAGE_KEY, []);
 let baseEdits = readJson(BASE_EDITS_KEY, {});
+let baseDeleted = readJson(BASE_DELETED_KEY, []);
 let selectedImage = '';
 let editing = null;
 
@@ -56,6 +58,10 @@ function saveBaseEdits(){
   localStorage.setItem(BASE_EDITS_KEY, JSON.stringify(baseEdits));
 }
 
+function saveBaseDeleted(){
+  localStorage.setItem(BASE_DELETED_KEY, JSON.stringify(baseDeleted));
+}
+
 function getBaseId(item, index){
   return item.id || `base-${index}`;
 }
@@ -68,10 +74,12 @@ function getUnitLabelFromValue(value){
 }
 
 function getBaseBenefitsWithEdits(){
-  return baseBenefits.map((item, index) => {
-    const id = getBaseId(item, index);
-    return {...item, id, ...(baseEdits[id] || {}), source:'base'};
-  });
+  return baseBenefits
+    .map((item, index) => {
+      const id = getBaseId(item, index);
+      return {...item, id, ...(baseEdits[id] || {}), source:'base'};
+    })
+    .filter(item => !baseDeleted.includes(item.id));
 }
 
 function getAllBenefits(){
@@ -148,8 +156,10 @@ async function publishAllBenefits(){
     baseBenefits = Array.isArray(data.benefits) ? data.benefits : getAllBenefits().map(cleanBenefitForPublish);
     savedBenefits = [];
     baseEdits = {};
+    baseDeleted = [];
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(BASE_EDITS_KEY);
+    localStorage.removeItem(BASE_DELETED_KEY);
     renderList();
     showStatus('Beneficios publicados correctamente. GitHub Pages puede tardar unos minutos en reflejarlos.');
     return true;
@@ -190,7 +200,7 @@ function renderList(){
           <span>${escapeHtml(item.unitLabel)} · ${escapeHtml(item.category)}</span>
           <div class="mini-actions">
             <button type="button" class="mini-edit" data-source="${escapeHtml(item.source)}" data-id="${escapeHtml(item.id)}">Editar</button>
-            ${isBase ? (baseChanged ? `<button type="button" class="mini-delete" data-restore-id="${escapeHtml(item.id)}">Restaurar</button>` : '') : `<button type="button" class="mini-delete" data-local-id="${escapeHtml(item.id)}">Eliminar</button>`}
+            ${isBase ? `<button type="button" class="mini-delete" data-base-id="${escapeHtml(item.id)}">Eliminar</button>${baseChanged ? `<button type="button" class="mini-restore" data-restore-id="${escapeHtml(item.id)}">Restaurar cambios</button>` : ''}` : `<button type="button" class="mini-delete" data-local-id="${escapeHtml(item.id)}">Eliminar</button>`}
           </div>
         </div>
       </div>`;
@@ -335,6 +345,7 @@ clearButton.addEventListener('click', () => {
 list.addEventListener('click', event => {
   const editButton = event.target.closest('.mini-edit');
   const deleteButton = event.target.closest('[data-local-id]');
+  const baseDeleteButton = event.target.closest('[data-base-id]');
   const restoreButton = event.target.closest('[data-restore-id]');
 
   if(editButton){
@@ -355,6 +366,20 @@ list.addEventListener('click', event => {
       saveLocalBenefits();
       renderList();
       showStatus('Beneficio eliminado correctamente.');
+    }
+    return;
+  }
+
+  if(baseDeleteButton){
+    const id = baseDeleteButton.dataset.baseId;
+    const item = baseBenefits.find((benefit, index) => getBaseId(benefit, index) === id);
+    if(item && confirm(`¿Eliminar el beneficio "${item.title}"? Esta acción lo ocultará del panel y, al publicar los cambios, también se quitará del portal para todos.`)){
+      baseDeleted = [...new Set([...baseDeleted, id])];
+      delete baseEdits[id];
+      saveBaseDeleted();
+      saveBaseEdits();
+      renderList();
+      showStatus('Beneficio eliminado individualmente. Pulsa “Publicar cambios para todos” para aplicar la eliminación en el portal.');
     }
     return;
   }
