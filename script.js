@@ -100,7 +100,8 @@ function render(){
   resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios disponibles · página ${currentPage} de ${totalPages}` : "No hay beneficios disponibles en esta unidad.";
 
   grid.innerHTML = pageItems.length ? pageItems.map(item => {
-    const caption = `${item.unitLabel} · ${item.category} · ${item.text} ${credentialNotice}`;
+    const notice = item.credentialNotice || credentialNotice;
+    const caption = `${item.unitLabel} · ${item.category} ${item.text ? `· ${item.text}` : ''} ${notice}`;
     return `
       <article class="benefit-card">
         <button type="button" class="zoom-trigger" data-image="${escapeHtml(item.image)}" data-title="${escapeHtml(item.title)}" data-caption="${escapeHtml(caption)}">
@@ -108,8 +109,8 @@ function render(){
           <div class="card-body">
             <span class="badge">${escapeHtml(item.unitLabel)}</span>
             <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.text)}</p>
-            <p class="credential-warning">${credentialNotice}</p>
+            ${item.text ? `<p>${escapeHtml(item.text)}</p>` : ""}
+            <p class="credential-warning">${escapeHtml(notice)}</p>
           </div>
         </button>
       </article>`;
