@@ -7,6 +7,7 @@ const cancelButton = document.querySelector('#cancel-button');
 const cancelEditButton = document.querySelector('#cancel-edit-button');
 const saveBenefitButton = document.querySelector('#save-benefit-button');
 const fileInput = document.querySelector('#image-file');
+const credentialNoticeInput = document.querySelector('#credential-notice');
 const previewCard = document.querySelector('#preview-card');
 const previewImage = document.querySelector('#image-preview');
 const publishButton = document.querySelector('#publish-benefits');
@@ -112,7 +113,8 @@ function cleanBenefitForPublish(item){
     title: item.title,
     category: item.category,
     image: item.image,
-    text: item.text,
+    text: item.text || '',
+    credentialNotice: item.credentialNotice || 'Promoción válida únicamente presentando credencial UAdeC vigente.',
     search: item.search || `${item.title} ${item.category} ${item.unitLabel} ${item.text}`
   };
   if(item.validUntil) result.validUntil = item.validUntil;
@@ -209,6 +211,7 @@ function renderList(){
 
 function resetForm(){
   form.reset();
+  if(credentialNoticeInput) credentialNoticeInput.value = 'Promoción válida únicamente presentando credencial UAdeC vigente.';
   selectedImage = '';
   editing = null;
   previewImage.src = '';
@@ -232,7 +235,7 @@ function fillForm(item){
   document.querySelector('#title').value = item.title || '';
   document.querySelector('#category').value = item.category || '';
   document.querySelector('#unit').value = item.unit || '';
-  document.querySelector('#text').value = item.text || '';
+  if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida únicamente presentando credencial UAdeC vigente.';
   selectedImage = item.image || '';
   previewImage.src = selectedImage;
   previewCard.hidden = !selectedImage;
@@ -243,14 +246,15 @@ function fillForm(item){
   form.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-function buildBenefitFromForm(existingImage = ''){
+function buildBenefitFromForm(existingImage = '', existingText = ''){
   const title = normalize(document.querySelector('#title').value);
   const category = normalize(document.querySelector('#category').value);
   const unitSelect = document.querySelector('#unit');
   const unit = unitSelect.value;
   const unitLabel = unitSelect.options[unitSelect.selectedIndex]?.dataset.label || getUnitLabelFromValue(unit);
-  const text = normalize(document.querySelector('#text').value);
+  const credentialNotice = normalize(credentialNoticeInput?.value) || 'Promoción válida únicamente presentando credencial UAdeC vigente.';
   const image = selectedImage || existingImage;
+  const text = existingText || '';
 
   return {
     unit,
@@ -259,7 +263,8 @@ function buildBenefitFromForm(existingImage = ''){
     category,
     image,
     text,
-    search: `${title} ${category} ${unitLabel} ${text}`
+    credentialNotice,
+    search: `${title} ${category} ${unitLabel} ${credentialNotice}`
   };
 }
 
@@ -292,7 +297,7 @@ form.addEventListener('submit', event => {
 
   if(editing?.source === 'base'){
     const current = getBaseBenefitsWithEdits().find(item => item.id === editing.id);
-    baseEdits[editing.id] = {...buildBenefitFromForm(current?.image), id: editing.id};
+    baseEdits[editing.id] = {...buildBenefitFromForm(current?.image, current?.text), id: editing.id};
     saveBaseEdits();
     renderList();
     resetForm();
@@ -303,7 +308,7 @@ form.addEventListener('submit', event => {
   if(editing?.source === 'local'){
     const index = savedBenefits.findIndex(item => item.id === editing.id);
     if(index !== -1){
-      savedBenefits[index] = {...savedBenefits[index], ...buildBenefitFromForm(savedBenefits[index].image), id: editing.id};
+      savedBenefits[index] = {...savedBenefits[index], ...buildBenefitFromForm(savedBenefits[index].image, savedBenefits[index].text), id: editing.id};
       saveLocalBenefits();
       renderList();
       resetForm();
