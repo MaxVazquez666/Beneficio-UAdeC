@@ -101,7 +101,7 @@ function render(){
 
   grid.innerHTML = pageItems.length ? pageItems.map(item => {
     const notice = item.credentialNotice || credentialNotice;
-    const caption = `${item.unitLabel} · ${item.category} ${item.text ? `· ${item.text}` : ''} ${notice}`;
+    const caption = `${item.unitLabel} · ${item.category} · ${notice}`;
     return `
       <article class="benefit-card">
         <button type="button" class="zoom-trigger" data-image="${escapeHtml(item.image)}" data-title="${escapeHtml(item.title)}" data-caption="${escapeHtml(caption)}">
@@ -109,7 +109,7 @@ function render(){
           <div class="card-body">
             <span class="badge">${escapeHtml(item.unitLabel)}</span>
             <h3>${escapeHtml(item.title)}</h3>
-            ${item.text ? `<p>${escapeHtml(item.text)}</p>` : ""}
+            
             <p class="credential-warning">${escapeHtml(notice)}</p>
           </div>
         </button>
