@@ -1,4 +1,4 @@
-const credentialNotice = "Promoción válida únicamente presentando credencial UAdeC vigente.";
+const credentialNotice = "Promoción válida presentando credencial UAdeC vigente.";
 const LOCAL_BENEFITS_KEY = "uadec-beneficios-locales";
 const BASE_EDITS_KEY = "uadec-beneficios-editados";
 

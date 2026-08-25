@@ -114,7 +114,7 @@ function cleanBenefitForPublish(item){
     category: item.category,
     image: item.image,
     text: item.text || '',
-    credentialNotice: item.credentialNotice || 'Promoción válida únicamente presentando credencial UAdeC vigente.',
+    credentialNotice: item.credentialNotice || 'Promoción válida presentando credencial UAdeC vigente.',
     search: item.search || `${item.title} ${item.category} ${item.unitLabel} ${item.text}`
   };
   if(item.validUntil) result.validUntil = item.validUntil;
@@ -211,7 +211,7 @@ function renderList(){
 
 function resetForm(){
   form.reset();
-  if(credentialNoticeInput) credentialNoticeInput.value = 'Promoción válida únicamente presentando credencial UAdeC vigente.';
+  if(credentialNoticeInput) credentialNoticeInput.value = 'Promoción válida presentando credencial UAdeC vigente.';
   selectedImage = '';
   editing = null;
   previewImage.src = '';
@@ -235,7 +235,7 @@ function fillForm(item){
   document.querySelector('#title').value = item.title || '';
   document.querySelector('#category').value = item.category || '';
   document.querySelector('#unit').value = item.unit || '';
-  if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida únicamente presentando credencial UAdeC vigente.';
+  if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida presentando credencial UAdeC vigente.';
   selectedImage = item.image || '';
   previewImage.src = selectedImage;
   previewCard.hidden = !selectedImage;
@@ -252,7 +252,7 @@ function buildBenefitFromForm(existingImage = '', existingText = ''){
   const unitSelect = document.querySelector('#unit');
   const unit = unitSelect.value;
   const unitLabel = unitSelect.options[unitSelect.selectedIndex]?.dataset.label || getUnitLabelFromValue(unit);
-  const credentialNotice = normalize(credentialNoticeInput?.value) || 'Promoción válida únicamente presentando credencial UAdeC vigente.';
+  const credentialNotice = normalize(credentialNoticeInput?.value) || 'Promoción válida presentando credencial UAdeC vigente.';
   const image = selectedImage || existingImage;
   const text = existingText || '';
 
