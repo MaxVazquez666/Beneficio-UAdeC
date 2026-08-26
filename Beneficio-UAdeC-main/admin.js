@@ -8,6 +8,9 @@ const cancelEditButton = document.querySelector('#cancel-edit-button');
 const saveBenefitButton = document.querySelector('#save-benefit-button');
 const fileInput = document.querySelector('#image-file');
 const credentialNoticeInput = document.querySelector('#credential-notice');
+const categorySelect = document.querySelector('#category');
+const customCategoryWrap = document.querySelector('#custom-category-wrap');
+const customCategoryInput = document.querySelector('#custom-category');
 const previewCard = document.querySelector('#preview-card');
 const previewImage = document.querySelector('#image-preview');
 const publishButton = document.querySelector('#publish-benefits');
@@ -35,6 +38,27 @@ function readJson(key, fallback){
 
 function normalize(value){
   return String(value || '').trim();
+}
+
+function updateCustomCategoryVisibility(){
+  if(!categorySelect || !customCategoryWrap) return;
+  const isOther = categorySelect.value === 'Otro';
+  customCategoryWrap.hidden = !isOther;
+  if(customCategoryInput){
+    customCategoryInput.required = isOther;
+    if(!isOther) customCategoryInput.value = '';
+  }
+}
+
+if(categorySelect){
+  categorySelect.addEventListener('change', updateCustomCategoryVisibility);
+  updateCustomCategoryVisibility();
+}
+
+function getSelectedCategory(){
+  const selected = normalize(categorySelect?.value);
+  if(selected !== 'Otro') return selected;
+  return normalize(customCategoryInput?.value);
 }
 
 function escapeHtml(value){
@@ -233,7 +257,18 @@ function readImageAsDataUrl(file){
 
 function fillForm(item){
   document.querySelector('#title').value = item.title || '';
-  document.querySelector('#category').value = item.category || '';
+  
+  const standardCategories = ['Restaurante','Hotel','Transporte','Salud','Deporte','Entretenimiento','Cafetería','Educación'];
+  if(categorySelect){
+    if(standardCategories.includes(item.category)){
+      categorySelect.value = item.category;
+      if(customCategoryInput) customCategoryInput.value = '';
+    }else{
+      categorySelect.value = 'Otro';
+      if(customCategoryInput) customCategoryInput.value = item.category || '';
+    }
+    updateCustomCategoryVisibility();
+  }
   document.querySelector('#unit').value = item.unit || '';
   if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida presentando credencial UAdeC vigente.';
   selectedImage = item.image || '';
@@ -248,7 +283,7 @@ function fillForm(item){
 
 function buildBenefitFromForm(existingImage = '', existingText = ''){
   const title = normalize(document.querySelector('#title').value);
-  const category = normalize(document.querySelector('#category').value);
+  const category = getSelectedCategory();
   const unitSelect = document.querySelector('#unit');
   const unit = unitSelect.value;
   const unitLabel = unitSelect.options[unitSelect.selectedIndex]?.dataset.label || getUnitLabelFromValue(unit);
