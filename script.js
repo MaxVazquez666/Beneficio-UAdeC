@@ -55,7 +55,8 @@ function escapeHtml(value){
 
 async function loadBenefits(){
   try{
-    const response = await fetch(`data/beneficios.json?t=${new Date().getTime()}`, {
+    // Carga dinamica anti-cache con la marca de tiempo actual
+    const response = await fetch(`data/beneficios.json?v=${Date.now()}`, {
       cache: "no-store",
       headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',

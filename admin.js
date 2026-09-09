@@ -114,7 +114,6 @@ function getAllBenefits(){
   ];
 }
 
-
 function getPublishEndpoint(){
   return String(window.UADEC_PUBLISH_CONFIG?.endpoint || '').trim();
 }
@@ -138,7 +137,7 @@ function cleanBenefitForPublish(item){
     category: item.category,
     image: item.image,
     text: item.text || '',
-    credentialNotice: item.credentialNotice || 'Promoción válida presentando credencial UAdeC vigente.',
+    credentialNotice: item.credentialNotice || 'Promoción válida presentando credencial UAdeC.',
     search: item.search || `${item.title} ${item.category} ${item.unitLabel} ${item.text}`
   };
   if(item.validUntil) result.validUntil = item.validUntil;
@@ -203,7 +202,13 @@ async function publishAllBenefits(){
 
 async function loadBaseBenefits(){
   try{
-    const response = await fetch('data/beneficios.json', {cache:'no-store'});
+    const response = await fetch(`data/beneficios.json?v=${Date.now()}`, {
+      cache: 'no-store',
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache'
+      }
+    });
     if(!response.ok) throw new Error('No se pudo cargar data/beneficios.json');
     baseBenefits = await response.json();
   }catch(error){
@@ -235,7 +240,7 @@ function renderList(){
 
 function resetForm(){
   form.reset();
-  if(credentialNoticeInput) credentialNoticeInput.value = 'Promoción válida presentando credencial UAdeC vigente.';
+  if(credentialNoticeInput) credentialNoticeInput.value = 'Promoción válida presentando credencial UAdeC.';
   selectedImage = '';
   editing = null;
   previewImage.src = '';
@@ -270,7 +275,7 @@ function fillForm(item){
     updateCustomCategoryVisibility();
   }
   document.querySelector('#unit').value = item.unit || '';
-  if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida presentando credencial UAdeC vigente.';
+  if(credentialNoticeInput) credentialNoticeInput.value = item.credentialNotice || 'Promoción válida presentando credencial UAdeC.';
   selectedImage = item.image || '';
   previewImage.src = selectedImage;
   previewCard.hidden = !selectedImage;
@@ -287,7 +292,7 @@ function buildBenefitFromForm(existingImage = '', existingText = ''){
   const unitSelect = document.querySelector('#unit');
   const unit = unitSelect.value;
   const unitLabel = unitSelect.options[unitSelect.selectedIndex]?.dataset.label || getUnitLabelFromValue(unit);
-  const credentialNotice = normalize(credentialNoticeInput?.value) || 'Promoción válida presentando credencial UAdeC vigente.';
+  const credentialNotice = normalize(credentialNoticeInput?.value) || 'Promoción válida presentando credencial UAdeC.';
   const image = selectedImage || existingImage;
   const text = existingText || '';
 
@@ -362,12 +367,8 @@ form.addEventListener('submit', event => {
   renderList();
   resetForm();
 
-  const goToBenefits = confirm('Beneficio agregado correctamente. ¿Quieres verlo ahora en la sección de beneficios?');
-  if(goToBenefits){
-    window.location.href = 'index.html#beneficios';
-  }else{
-    showStatus('Beneficio agregado correctamente.');
-  }
+  // Mantiene al usuario en el panel de administracion sin redirigir afuera
+  showStatus('Beneficio agregado correctamente a la lista.');
 });
 
 cancelButton.addEventListener('click', resetForm);
