@@ -1,3 +1,4 @@
+const credentialNotice = "Promoción válida presentando credencial UAdeC.";
 const LOCAL_BENEFITS_KEY = "uadec-beneficios-locales";
 const BASE_EDITS_KEY = "uadec-beneficios-editados";
 
@@ -89,7 +90,8 @@ function render(){
   resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios disponibles · página ${currentPage} de ${totalPages}` : "No hay beneficios disponibles en esta unidad.";
 
   grid.innerHTML = pageItems.length ? pageItems.map(item => {
-    const caption = `${item.unitLabel} · ${item.category}`;
+    const notice = item.credentialNotice || credentialNotice;
+    const caption = `${item.unitLabel} · ${item.category} · ${notice}`;
     return `
       <article class="benefit-card">
         <button type="button" class="zoom-trigger" data-image="${escapeHtml(item.image)}" data-title="${escapeHtml(item.title)}" data-caption="${escapeHtml(caption)}">
@@ -97,6 +99,7 @@ function render(){
           <div class="card-body">
             <span class="badge">${escapeHtml(item.unitLabel)}</span>
             <h3>${escapeHtml(item.title)}</h3>
+            <p class="credential-warning">${escapeHtml(notice)}</p>
           </div>
         </button>
       </article>`;
