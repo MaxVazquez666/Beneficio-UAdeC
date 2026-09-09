@@ -1,5 +1,14 @@
 [
   {
+    "id": "base-0",
+    "unit": "sureste",
+    "unitLabel": "Unidad Sureste",
+    "title": "KFC Sureste",
+    "category": "Restaurante",
+    "image": "assets/beneficios/kfc.jpeg",
+    "search": "KFC Sureste Restaurante Unidad Sureste pollo comida"
+  },
+  {
     "id": "base-1",
     "unit": "sureste",
     "unitLabel": "Unidad Sureste",
