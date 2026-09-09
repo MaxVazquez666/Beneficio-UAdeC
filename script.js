@@ -1,4 +1,3 @@
-const credentialNotice = "Promoción válida presentando credencial UAdeC vigente.";
 const LOCAL_BENEFITS_KEY = "uadec-beneficios-locales";
 const BASE_EDITS_KEY = "uadec-beneficios-editados";
 
@@ -35,21 +34,6 @@ const perPage = 3;
 let selectedUnit = "sureste";
 let currentPage = 1;
 
-const fallbackBenefits = [
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"KFC", category:"Restaurante", image:"assets/beneficios/kfc.jpeg", text:"Beneficio para comunidad universitaria en restaurante participante.", search:"kfc comida restaurante pollo saltillo sureste" },
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Tacos", category:"Restaurante", image:"assets/beneficios/tacos.jpeg", text:"Beneficio de alimentos para estudiantes, docentes y personal.", search:"tacos restaurante comida saltillo sureste" },
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida sureste" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida laguna" },
-  { unit:"norte", unitLabel:"Unidad Norte", title:"Pampas", category:"Restaurante", image:"assets/beneficios/pampas.jpeg", text:"Beneficio en restaurante participante.", search:"pampas buffet restaurante comida norte" },
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Boliche", category:"Entretenimiento", image:"assets/beneficios/boliche.jpeg", text:"Promoción en entretenimiento para comunidad UAdeC.", search:"boliche entretenimiento diversion sureste" },
-  { unit:"sureste", unitLabel:"Unidad Sureste", title:"Padel", category:"Deporte", image:"assets/beneficios/padel.jpeg", text:"Beneficio deportivo para comunidad universitaria.", search:"padel deporte fitness sureste" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"City Express", category:"Hotel", image:"assets/beneficios/city-express.jpeg", text:"Beneficio de hospedaje para comunidad universitaria.", search:"city express hotel hospedaje torreon laguna" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Suites", category:"Hotel", image:"assets/beneficios/suites.jpeg", text:"Beneficio de hospedaje en establecimiento aliado.", search:"suites hotel hospedaje laguna" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Senda", category:"Transporte", image:"assets/beneficios/senda.jpeg", text:"Beneficio en transporte para la comunidad universitaria.", search:"senda transporte viajes laguna" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"KFC Nuevo León", category:"Restaurante", image:"assets/beneficios/kfc-nuevo-leon.jpeg", text:"Beneficio en restaurante participante de la Unidad Laguna.", search:"kfc nuevo leon restaurante comida laguna" },
-  { unit:"laguna", unitLabel:"Unidad Laguna", title:"Tim Hortons", category:"Cafetería", image:"assets/beneficios/tim-hortons.jpeg", text:"Beneficio en cafetería para comunidad universitaria.", search:"tim hortons cafe cafeteria restaurante laguna" }
-];
-
 const unitButtons = document.querySelectorAll(".unit-card");
 const grid = document.querySelector("#benefit-grid");
 const resultsMessage = document.querySelector("#results-message");
@@ -70,7 +54,6 @@ function escapeHtml(value){
 
 async function loadBenefits(){
   try{
-    // Se agrega el parámetro de tiempo ?t= al final de la URL para romper la caché del archivo JSON en cualquier navegador
     const response = await fetch(`data/beneficios.json?t=${new Date().getTime()}`, {
       cache: "no-store",
       headers: {
@@ -81,8 +64,8 @@ async function loadBenefits(){
     if(!response.ok) throw new Error("No se pudo cargar data/beneficios.json");
     benefits = applyBaseBenefitEdits(await response.json());
   }catch(error){
-    console.warn("Usando beneficios de respaldo. Para editar fácilmente usa Live Server o GitHub Pages.", error);
-    benefits = applyBaseBenefitEdits(fallbackBenefits);
+    console.error("Error al cargar JSON de beneficios:", error);
+    benefits = [];
   }
 
   benefits = [...benefits, ...getLocalBenefits()];
@@ -106,8 +89,7 @@ function render(){
   resultsMessage.textContent = filtered.length ? `${filtered.length} beneficios disponibles · página ${currentPage} de ${totalPages}` : "No hay beneficios disponibles en esta unidad.";
 
   grid.innerHTML = pageItems.length ? pageItems.map(item => {
-    const notice = item.credentialNotice || credentialNotice;
-    const caption = `${item.unitLabel} · ${item.category} · ${notice}`;
+    const caption = `${item.unitLabel} · ${item.category}`;
     return `
       <article class="benefit-card">
         <button type="button" class="zoom-trigger" data-image="${escapeHtml(item.image)}" data-title="${escapeHtml(item.title)}" data-caption="${escapeHtml(caption)}">
@@ -115,8 +97,6 @@ function render(){
           <div class="card-body">
             <span class="badge">${escapeHtml(item.unitLabel)}</span>
             <h3>${escapeHtml(item.title)}</h3>
-            
-            <p class="credential-warning">${escapeHtml(notice)}</p>
           </div>
         </button>
       </article>`;

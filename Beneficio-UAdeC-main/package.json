@@ -1,8 +1,0 @@
-{
-  "name": "beneficio-uadec-publisher",
-  "private": true,
-  "version": "1.0.0",
-  "engines": {
-    "node": ">=18"
-  }
-}
