@@ -2,7 +2,6 @@ const credentialNotice = "Promoción válida presentando credencial UAdeC vigent
 const LOCAL_BENEFITS_KEY = "uadec-beneficios-locales";
 const BASE_EDITS_KEY = "uadec-beneficios-editados";
 
-
 function getBaseBenefitEdits(){
   try{
     const saved = JSON.parse(localStorage.getItem(BASE_EDITS_KEY) || "{}");
@@ -71,7 +70,14 @@ function escapeHtml(value){
 
 async function loadBenefits(){
   try{
-    const response = await fetch("data/beneficios.json", {cache:"no-store"});
+    // Se agrega el parámetro de tiempo ?t= al final de la URL para romper la caché del archivo JSON en cualquier navegador
+    const response = await fetch(`data/beneficios.json?t=${new Date().getTime()}`, {
+      cache: "no-store",
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache'
+      }
+    });
     if(!response.ok) throw new Error("No se pudo cargar data/beneficios.json");
     benefits = applyBaseBenefitEdits(await response.json());
   }catch(error){
@@ -120,6 +126,7 @@ function render(){
 }
 
 function renderPagination(totalPages){
+  if(!prevPage || !nextPage || !pageNumbers) return;
   prevPage.disabled = currentPage === 1;
   nextPage.disabled = currentPage === totalPages;
   pageNumbers.innerHTML = Array.from({length: totalPages}, (_, index) => {
@@ -133,7 +140,7 @@ unitButtons.forEach(button => {
     selectedUnit = button.dataset.unit;
     currentPage = 1;
     unitButtons.forEach(item => item.classList.toggle("active", item === button));
-    document.querySelector("#beneficios").scrollIntoView({behavior:"smooth", block:"start"});
+    document.querySelector("#beneficios")?.scrollIntoView({behavior:"smooth", block:"start"});
     render();
   });
 });
