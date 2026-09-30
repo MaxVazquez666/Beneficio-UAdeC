@@ -34,5 +34,14 @@
     "correo": "xblis07@gmail.com",
     "telefono": "8448692170",
     "estatus": "Pendiente"
+  },
+  {
+    "id": "empresa-1790782164903",
+    "fecha": "2026-09-30T15:29:24.903Z",
+    "empresa": "Empresa test",
+    "contacto": "juan perez",
+    "correo": "saidvqz6690@gmail.com",
+    "telefono": "8442138231",
+    "estatus": "Pendiente"
   }
 ]
