@@ -7,5 +7,14 @@
     "correo": "hola@codigo404.mx",
     "telefono": "8441769208",
     "estatus": "Pendiente"
+  },
+  {
+    "id": "empresa-1790780463206",
+    "fecha": "2026-09-30T15:01:03.206Z",
+    "empresa": "Empresa test",
+    "contacto": "juan perez",
+    "correo": "saidvqz6690@gmail.com",
+    "telefono": "8442138231",
+    "estatus": "Pendiente"
   }
 ]
