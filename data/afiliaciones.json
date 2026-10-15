@@ -43,5 +43,14 @@
     "correo": "saidvqz6690@gmail.com",
     "telefono": "8442138231",
     "estatus": "Pendiente"
+  },
+  {
+    "id": "empresa-1792093423134",
+    "fecha": "2026-10-15T19:43:43.134Z",
+    "empresa": "RD GYM",
+    "contacto": "Ricardo Gallardo Espinoza",
+    "correo": "ricardogallardo6872@gmail.com",
+    "telefono": "8445328543",
+    "estatus": "Pendiente"
   }
 ]
